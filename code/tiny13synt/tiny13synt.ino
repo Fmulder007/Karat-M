@@ -1,51 +1,31 @@
-#include <avr/io.h>
-#include <util/delay.h>
-#include <avr/sleep.h>
-#include <avr/interrupt.h>
 #include <avr/eeprom.h>
 #include "tiny5351.h"
 
-
-#define REF_AVCC (0<<REFS0) // reference = AVCC
-uint32_t frequency = 12345678UL;
-uint16_t t;
-uint16_t prv_t = 0;
+uint32_t SI_XTAL_FREQ = 27019000UL; // Measured crystal frequency of XTAL2 for CL = 10pF
+uint32_t frequency = 0;
+uint8_t ch = 0;
+uint8_t prv_ch = 0;
 
 
 void setup() {
-  DDRB &= ~(1 << PB3); // For attiny it is PB3 for adc input
-  InitADC();
+  DDRB &= ~(1 << PB3);      // For attiny it is PB3 for adc input
+  ADMUX |= (0 << REFS0) | (1 << MUX1) | (1 << MUX0); // set reference and channel
+  ADCSRA |= (1 << ADPS2) | (1 << ADPS1) | (1 << ADPS0) | (1 << ADEN); //set prescaller to 128 and enable ADC
   sei();
-  //si5351_freq(eeprom_read_dword(), 0);
-  //eeprom_update_dword(0, frequency);
 }
 
 void loop() {
-  /*
-    t = ReadADC(3) >> 6;
-    if (prv_t != t) {
-      si5351_freq(frequency + t, 0);
-      prv_t = t;
-    }*/
-  t = map(ReadADC(3), 0, 1023, 0, 10);
-  if (prv_t != t) {
-    frequency = eeprom_read_dword(uint32_t(t));
+  ch = ReadADC() >> 6;
+  if (prv_ch != ch) {
+    frequency = eeprom_read_dword((uint32_t*)(ch << 2));
     si5351_freq(frequency, 0);
-    prv_t = t;
+    prv_ch = ch;
   }
+  delay(500);
 }
 
-uint16_t ReadADC(uint8_t ADCchannel) {
-  ADMUX = REF_AVCC | ADCchannel;  // set reference and channel
-  delay(100);
-  ADMUX |= _BV(ADLAR); // left adjust of ADC result
+uint16_t ReadADC() {
   ADCSRA |= (1 << ADSC);       // start conversion
   while (ADCSRA & (1 << ADSC)) {} // wait for conversion complete
   return ADC;
-}
-
-void InitADC() {
-  ADMUX |= (1 << REFS0);
-  //set prescaller to 128 and enable ADC
-  ADCSRA |= (1 << ADPS2) | (1 << ADPS1) | (1 << ADPS0) | (1 << ADEN);
 }
