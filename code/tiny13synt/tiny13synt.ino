@@ -1,10 +1,10 @@
 #include <avr/eeprom.h>
 #include "tiny5351.h"
 
-uint32_t SI_XTAL_FREQ = 27019000UL; // Measured crystal frequency of XTAL2 for CL = 10pF
-uint32_t frequency = 0;
-uint8_t ch = 0;
-uint8_t prv_ch = 0;
+uint32_t SI_XTAL_FREQ = 27018750UL; // Measured crystal frequency of XTAL2 for CL = 10pF
+//uint32_t frequency = 0;
+//uint8_t ch = 0;
+uint8_t prv_ch = 254;
 
 
 void setup() {
@@ -15,13 +15,11 @@ void setup() {
 }
 
 void loop() {
-  ch = ReadADC() >> 6;
+uint8_t  ch = ReadADC() >> 6;
   if (prv_ch != ch) {
-    frequency = eeprom_read_dword((uint32_t*)(ch << 2));
-    si5351_freq(frequency, 0);
+    si5351_freq(eeprom_read_dword((uint32_t*)(ch << 2)) , 0);
     prv_ch = ch;
   }
-  delay(500);
 }
 
 uint16_t ReadADC() {

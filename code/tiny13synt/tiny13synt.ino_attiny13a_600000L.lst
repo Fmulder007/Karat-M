@@ -1,5 +1,5 @@
 
-C:\Users\fm\AppData\Local\Temp\arduino_build_630655/tiny13synt.ino.elf:     file format elf32-avr
+C:\Users\fm\AppData\Local\Temp\arduino_build_509065/tiny13synt.ino.elf:     file format elf32-avr
 
 
 Disassembly of section .text:
@@ -78,7 +78,7 @@ C:\Users\fm\AppData\Local\Arduino15\packages\MicroCore\hardware\avr\2.2.0\cores\
 setup():
 C:\github\Karat-M\code\tiny13synt/tiny13synt.ino:11
 //uint8_t ch = 0;
-uint8_t prv_ch = 254;
+uint8_t prv_ch = 1;
 
 
 void setup() {
@@ -145,7 +145,7 @@ C:\github\Karat-M\code\tiny13synt/tiny13synt.ino:20
   80:	2b 01       	movw	r4, r22
   82:	3c 01       	movw	r6, r24
 si5351_freq():
-C:\Users\fm\AppData\Local\Temp\arduino_build_630655\sketch/tiny5351.c:57
+C:\Users\fm\AppData\Local\Temp\arduino_build_509065\sketch/tiny5351.c:57
 void si5351_freq(uint32_t freq, uint8_t clk) //, uint8_t i, uint8_t q
 {
   uint8_t si5351_mult;
@@ -153,7 +153,7 @@ void si5351_freq(uint32_t freq, uint8_t clk) //, uint8_t i, uint8_t q
   uint8_t r_div = 1;
   i2c_init();
   84:	08 d1       	rcall	.+528    	; 0x296 <i2c_init>
-C:\Users\fm\AppData\Local\Temp\arduino_build_630655\sketch/tiny5351.c:58
+C:\Users\fm\AppData\Local\Temp\arduino_build_509065\sketch/tiny5351.c:58
   setupPLL(SI_SYNTH_PLL_A, 20, 0, 1, R_DIV_NA);
   86:	cc 24       	eor	r12, r12
   88:	ca 94       	dec	r12
@@ -167,14 +167,14 @@ C:\Users\fm\AppData\Local\Temp\arduino_build_630655\sketch/tiny5351.c:58
   98:	64 e1       	ldi	r22, 0x14	; 20
   9a:	8a e1       	ldi	r24, 0x1A	; 26
   9c:	53 d0       	rcall	.+166    	; 0x144 <setupPLL>
-C:\Users\fm\AppData\Local\Temp\arduino_build_630655\sketch/tiny5351.c:61
+C:\Users\fm\AppData\Local\Temp\arduino_build_509065\sketch/tiny5351.c:61
   //setupPLL(SI_SYNTH_PLL_B, 30, 0, 1,R_DIV_NA);
   pll_freq = (SI_XTAL_FREQ * 20);
   div_result output = tdivide(pll_freq, freq);
   9e:	a3 01       	movw	r20, r6
   a0:	92 01       	movw	r18, r4
-  a2:	68 ed       	ldi	r22, 0xD8	; 216
-  a4:	77 e7       	ldi	r23, 0x77	; 119
+  a2:	60 e8       	ldi	r22, 0x80	; 128
+  a4:	7c e5       	ldi	r23, 0x5C	; 92
   a6:	85 e3       	ldi	r24, 0x35	; 53
   a8:	90 e2       	ldi	r25, 0x20	; 32
   aa:	5f d1       	rcall	.+702    	; 0x36a <tdivide>
@@ -183,7 +183,7 @@ C:\Users\fm\AppData\Local\Temp\arduino_build_630655\sketch/tiny5351.c:61
   b0:	3a 83       	std	Y+2, r19	; 0x02
   b2:	4b 83       	std	Y+3, r20	; 0x03
   b4:	5c 83       	std	Y+4, r21	; 0x04
-C:\Users\fm\AppData\Local\Temp\arduino_build_630655\sketch/tiny5351.c:63
+C:\Users\fm\AppData\Local\Temp\arduino_build_509065\sketch/tiny5351.c:63
   si5351_mult = output.quot;
   uint32_t l =  output.remainder << 7;
   b6:	69 81       	ldd	r22, Y+1	; 0x01
@@ -197,7 +197,7 @@ C:\Users\fm\AppData\Local\Temp\arduino_build_630655\sketch/tiny5351.c:63
   c6:	99 1f       	adc	r25, r25
   c8:	4a 95       	dec	r20
   ca:	d1 f7       	brne	.-12     	; 0xc0 <__stack+0x21>
-C:\Users\fm\AppData\Local\Temp\arduino_build_630655\sketch/tiny5351.c:64
+C:\Users\fm\AppData\Local\Temp\arduino_build_509065\sketch/tiny5351.c:64
   output = tdivide(l, freq);
   cc:	a3 01       	movw	r20, r6
   ce:	92 01       	movw	r18, r4
@@ -210,7 +210,7 @@ C:\Users\fm\AppData\Local\Temp\arduino_build_630655\sketch/tiny5351.c:64
   dc:	7e 83       	std	Y+6, r23	; 0x06
   de:	8f 83       	std	Y+7, r24	; 0x07
   e0:	98 87       	std	Y+8, r25	; 0x08
-C:\Users\fm\AppData\Local\Temp\arduino_build_630655\sketch/tiny5351.c:66
+C:\Users\fm\AppData\Local\Temp\arduino_build_509065\sketch/tiny5351.c:66
   l = output.quot;
   l = l << 13;
   e2:	2d 81       	ldd	r18, Y+5	; 0x05
@@ -224,7 +224,7 @@ C:\Users\fm\AppData\Local\Temp\arduino_build_630655\sketch/tiny5351.c:66
   f2:	55 1f       	adc	r21, r21
   f4:	6a 95       	dec	r22
   f6:	d1 f7       	brne	.-12     	; 0xec <__stack+0x4d>
-C:\Users\fm\AppData\Local\Temp\arduino_build_630655\sketch/tiny5351.c:69
+C:\Users\fm\AppData\Local\Temp\arduino_build_509065\sketch/tiny5351.c:69
   uint32_t num = l;
   const uint32_t denom = 0xFFFFF;
   setupPLL((SI_SYNTH_MS_0 + (8 * clk)), si5351_mult, num, denom, SI_R_DIV_1);
@@ -237,22 +237,22 @@ C:\Users\fm\AppData\Local\Temp\arduino_build_630655\sketch/tiny5351.c:69
  104:	6b 2d       	mov	r22, r11
  106:	8a e2       	ldi	r24, 0x2A	; 42
  108:	1d d0       	rcall	.+58     	; 0x144 <setupPLL>
-C:\Users\fm\AppData\Local\Temp\arduino_build_630655\sketch/tiny5351.c:70
+C:\Users\fm\AppData\Local\Temp\arduino_build_509065\sketch/tiny5351.c:70
   i2cSendRegister((SI_CLK0_CONTROL + clk), 0x4F | SI_CLK_SRC_PLL_A); //0x4F
  10a:	6f e4       	ldi	r22, 0x4F	; 79
  10c:	80 e1       	ldi	r24, 0x10	; 16
  10e:	0b d0       	rcall	.+22     	; 0x126 <i2cSendRegister>
-C:\Users\fm\AppData\Local\Temp\arduino_build_630655\sketch/tiny5351.c:71
+C:\Users\fm\AppData\Local\Temp\arduino_build_509065\sketch/tiny5351.c:71
   i2cSendRegister(SI_PLL_RESET, 0xA0);
  110:	60 ea       	ldi	r22, 0xA0	; 160
  112:	81 eb       	ldi	r24, 0xB1	; 177
  114:	08 d0       	rcall	.+16     	; 0x126 <i2cSendRegister>
-C:\Users\fm\AppData\Local\Temp\arduino_build_630655\sketch/tiny5351.c:72
+C:\Users\fm\AppData\Local\Temp\arduino_build_509065\sketch/tiny5351.c:72
   i2cSendRegister(SI_CLK_OE,  ~(1 << clk)); // Enable
  116:	6e ef       	ldi	r22, 0xFE	; 254
  118:	83 e0       	ldi	r24, 0x03	; 3
  11a:	05 d0       	rcall	.+10     	; 0x126 <i2cSendRegister>
-C:\Users\fm\AppData\Local\Temp\arduino_build_630655\sketch/tiny5351.c:73
+C:\Users\fm\AppData\Local\Temp\arduino_build_509065\sketch/tiny5351.c:73
   i2c_exit();						// Exit I2C
  11c:	c1 d0       	rcall	.+386    	; 0x2a0 <i2c_exit>
 loop():
@@ -267,7 +267,7 @@ __vector_1():
 
 00000126 <i2cSendRegister>:
 i2cSendRegister():
-C:\Users\fm\AppData\Local\Temp\arduino_build_630655\sketch/tiny5351.c:13
+C:\Users\fm\AppData\Local\Temp\arduino_build_509065\sketch/tiny5351.c:13
 #define I2C_WRITE 0b11000000
 #define I2C_READ  0b11000001
 
@@ -278,22 +278,22 @@ uint8_t i2cSendRegister(uint8_t reg, uint8_t data)
  128:	df 93       	push	r29
  12a:	d8 2f       	mov	r29, r24
  12c:	c6 2f       	mov	r28, r22
-C:\Users\fm\AppData\Local\Temp\arduino_build_630655\sketch/tiny5351.c:14
+C:\Users\fm\AppData\Local\Temp\arduino_build_509065\sketch/tiny5351.c:14
   i2c_start_wait(I2C_WRITE);
  12e:	80 ec       	ldi	r24, 0xC0	; 192
  130:	bd d0       	rcall	.+378    	; 0x2ac <i2c_start_wait>
-C:\Users\fm\AppData\Local\Temp\arduino_build_630655\sketch/tiny5351.c:15
+C:\Users\fm\AppData\Local\Temp\arduino_build_509065\sketch/tiny5351.c:15
   i2c_write(reg);
  132:	8d 2f       	mov	r24, r29
  134:	cd d0       	rcall	.+410    	; 0x2d0 <i2c_write>
-C:\Users\fm\AppData\Local\Temp\arduino_build_630655\sketch/tiny5351.c:16
+C:\Users\fm\AppData\Local\Temp\arduino_build_509065\sketch/tiny5351.c:16
   i2c_write(data);
  136:	8c 2f       	mov	r24, r28
  138:	cb d0       	rcall	.+406    	; 0x2d0 <i2c_write>
-C:\Users\fm\AppData\Local\Temp\arduino_build_630655\sketch/tiny5351.c:17
+C:\Users\fm\AppData\Local\Temp\arduino_build_509065\sketch/tiny5351.c:17
   i2c_stop();
  13a:	c2 d0       	rcall	.+388    	; 0x2c0 <i2c_stop>
-C:\Users\fm\AppData\Local\Temp\arduino_build_630655\sketch/tiny5351.c:19
+C:\Users\fm\AppData\Local\Temp\arduino_build_509065\sketch/tiny5351.c:19
   return 0;
 }
  13c:	80 e0       	ldi	r24, 0x00	; 0
@@ -303,7 +303,7 @@ C:\Users\fm\AppData\Local\Temp\arduino_build_630655\sketch/tiny5351.c:19
 
 00000144 <setupPLL>:
 setupPLL():
-C:\Users\fm\AppData\Local\Temp\arduino_build_630655\sketch/tiny5351.c:22
+C:\Users\fm\AppData\Local\Temp\arduino_build_509065\sketch/tiny5351.c:22
 
 static void setupPLL( uint8_t pll, uint8_t mult, uint32_t num, uint32_t denom, uint8_t rDiv)
 {
@@ -333,7 +333,7 @@ static void setupPLL( uint8_t pll, uint8_t mult, uint32_t num, uint32_t denom, u
  172:	36 2e       	mov	r3, r22
  174:	67 01       	movw	r12, r14
  176:	78 01       	movw	r14, r16
-C:\Users\fm\AppData\Local\Temp\arduino_build_630655\sketch/tiny5351.c:27
+C:\Users\fm\AppData\Local\Temp\arduino_build_509065\sketch/tiny5351.c:27
   uint32_t P1;
   uint32_t P2;
   uint32_t P3;
@@ -348,7 +348,7 @@ C:\Users\fm\AppData\Local\Temp\arduino_build_630655\sketch/tiny5351.c:27
  184:	77 1c       	adc	r7, r7
  186:	8a 95       	dec	r24
  188:	d1 f7       	brne	.-12     	; 0x17e <setupPLL+0x3a>
-C:\Users\fm\AppData\Local\Temp\arduino_build_630655\sketch/tiny5351.c:28
+C:\Users\fm\AppData\Local\Temp\arduino_build_509065\sketch/tiny5351.c:28
   div_result output = tdivide(mulresult, denom);
  18a:	a8 01       	movw	r20, r16
  18c:	96 01       	movw	r18, r12
@@ -359,13 +359,13 @@ C:\Users\fm\AppData\Local\Temp\arduino_build_630655\sketch/tiny5351.c:28
  196:	7e 83       	std	Y+6, r23	; 0x06
  198:	8f 83       	std	Y+7, r24	; 0x07
  19a:	98 87       	std	Y+8, r25	; 0x08
-C:\Users\fm\AppData\Local\Temp\arduino_build_630655\sketch/tiny5351.c:29
+C:\Users\fm\AppData\Local\Temp\arduino_build_509065\sketch/tiny5351.c:29
   uint32_t term =  output.quot;
  19c:	8d 80       	ldd	r8, Y+5	; 0x05
  19e:	9e 80       	ldd	r9, Y+6	; 0x06
  1a0:	af 80       	ldd	r10, Y+7	; 0x07
  1a2:	b8 84       	ldd	r11, Y+8	; 0x08
-C:\Users\fm\AppData\Local\Temp\arduino_build_630655\sketch/tiny5351.c:30
+C:\Users\fm\AppData\Local\Temp\arduino_build_509065\sketch/tiny5351.c:30
   uint32_t mulresultmix = tmultiply(denom, term);
  1a4:	a5 01       	movw	r20, r10
  1a6:	94 01       	movw	r18, r8
@@ -380,7 +380,7 @@ C:\Users\fm\AppData\Local\Temp\arduino_build_630655\sketch/tiny5351.c:30
  1b8:	7e 87       	std	Y+14, r23	; 0x0e
  1ba:	8f 87       	std	Y+15, r24	; 0x0f
  1bc:	98 8b       	std	Y+16, r25	; 0x10
-C:\Users\fm\AppData\Local\Temp\arduino_build_630655\sketch/tiny5351.c:31
+C:\Users\fm\AppData\Local\Temp\arduino_build_509065\sketch/tiny5351.c:31
   P2 = mulresult - mulresultmix;
  1be:	89 85       	ldd	r24, Y+9	; 0x09
  1c0:	9a 85       	ldd	r25, Y+10	; 0x0a
@@ -390,7 +390,7 @@ C:\Users\fm\AppData\Local\Temp\arduino_build_630655\sketch/tiny5351.c:31
  1c8:	59 0a       	sbc	r5, r25
  1ca:	6a 0a       	sbc	r6, r26
  1cc:	7b 0a       	sbc	r7, r27
-C:\Users\fm\AppData\Local\Temp\arduino_build_630655\sketch/tiny5351.c:33
+C:\Users\fm\AppData\Local\Temp\arduino_build_509065\sketch/tiny5351.c:33
   mulresult = mult << 7;
   P1 = mulresult + term - 512;
  1ce:	b5 01       	movw	r22, r10
@@ -398,7 +398,7 @@ C:\Users\fm\AppData\Local\Temp\arduino_build_630655\sketch/tiny5351.c:33
  1d2:	52 50       	subi	r21, 0x02	; 2
  1d4:	61 09       	sbc	r22, r1
  1d6:	71 09       	sbc	r23, r1
-C:\Users\fm\AppData\Local\Temp\arduino_build_630655\sketch/tiny5351.c:32
+C:\Users\fm\AppData\Local\Temp\arduino_build_509065\sketch/tiny5351.c:32
   uint32_t mulresult = num << 7;
   div_result output = tdivide(mulresult, denom);
   uint32_t term =  output.quot;
@@ -416,7 +416,7 @@ C:\Users\fm\AppData\Local\Temp\arduino_build_630655\sketch/tiny5351.c:32
  1e8:	00 0c       	add	r0, r0
  1ea:	aa 0b       	sbc	r26, r26
  1ec:	bb 0b       	sbc	r27, r27
-C:\Users\fm\AppData\Local\Temp\arduino_build_630655\sketch/tiny5351.c:33
+C:\Users\fm\AppData\Local\Temp\arduino_build_509065\sketch/tiny5351.c:33
   P1 = mulresult + term - 512;
  1ee:	4a 01       	movw	r8, r20
  1f0:	5b 01       	movw	r10, r22
@@ -424,7 +424,7 @@ C:\Users\fm\AppData\Local\Temp\arduino_build_630655\sketch/tiny5351.c:33
  1f4:	99 1e       	adc	r9, r25
  1f6:	aa 1e       	adc	r10, r26
  1f8:	bb 1e       	adc	r11, r27
-C:\Users\fm\AppData\Local\Temp\arduino_build_630655\sketch/tiny5351.c:35
+C:\Users\fm\AppData\Local\Temp\arduino_build_509065\sketch/tiny5351.c:35
   P3 = denom;
   i2cSendRegister(pll + 0, (P3 & 0x0000FF00) >> 8);
  1fa:	99 27       	eor	r25, r25
@@ -433,13 +433,13 @@ C:\Users\fm\AppData\Local\Temp\arduino_build_630655\sketch/tiny5351.c:35
  200:	6d 2d       	mov	r22, r13
  202:	82 2d       	mov	r24, r2
  204:	90 df       	rcall	.-224    	; 0x126 <i2cSendRegister>
-C:\Users\fm\AppData\Local\Temp\arduino_build_630655\sketch/tiny5351.c:36
+C:\Users\fm\AppData\Local\Temp\arduino_build_509065\sketch/tiny5351.c:36
   i2cSendRegister(pll + 1, (P3 & 0x000000FF));
  206:	6c 2d       	mov	r22, r12
  208:	81 e0       	ldi	r24, 0x01	; 1
  20a:	82 0d       	add	r24, r2
  20c:	8c df       	rcall	.-232    	; 0x126 <i2cSendRegister>
-C:\Users\fm\AppData\Local\Temp\arduino_build_630655\sketch/tiny5351.c:43
+C:\Users\fm\AppData\Local\Temp\arduino_build_509065\sketch/tiny5351.c:43
   {
     i2cSendRegister(pll + 2,   ((P1 & 0x00030000) >> 16) | rDiv);
   }
@@ -451,7 +451,7 @@ C:\Users\fm\AppData\Local\Temp\arduino_build_630655\sketch/tiny5351.c:43
  212:	82 e0       	ldi	r24, 0x02	; 2
  214:	82 0d       	add	r24, r2
  216:	87 df       	rcall	.-242    	; 0x126 <i2cSendRegister>
-C:\Users\fm\AppData\Local\Temp\arduino_build_630655\sketch/tiny5351.c:45
+C:\Users\fm\AppData\Local\Temp\arduino_build_509065\sketch/tiny5351.c:45
   }
   i2cSendRegister(pll + 3, (P1 & 0x0000FF00) >> 8);
  218:	99 27       	eor	r25, r25
@@ -461,13 +461,13 @@ C:\Users\fm\AppData\Local\Temp\arduino_build_630655\sketch/tiny5351.c:45
  220:	83 e0       	ldi	r24, 0x03	; 3
  222:	82 0d       	add	r24, r2
  224:	80 df       	rcall	.-256    	; 0x126 <i2cSendRegister>
-C:\Users\fm\AppData\Local\Temp\arduino_build_630655\sketch/tiny5351.c:46
+C:\Users\fm\AppData\Local\Temp\arduino_build_509065\sketch/tiny5351.c:46
   i2cSendRegister(pll + 4, (P1 & 0x000000FF));
  226:	68 2d       	mov	r22, r8
  228:	84 e0       	ldi	r24, 0x04	; 4
  22a:	82 0d       	add	r24, r2
  22c:	7c df       	rcall	.-264    	; 0x126 <i2cSendRegister>
-C:\Users\fm\AppData\Local\Temp\arduino_build_630655\sketch/tiny5351.c:47
+C:\Users\fm\AppData\Local\Temp\arduino_build_509065\sketch/tiny5351.c:47
   i2cSendRegister(pll + 5, ((P3 & 0x000F0000) >> 12) | ((P2 & 0x000F0000) >> 16));
  22e:	5c e0       	ldi	r21, 0x0C	; 12
  230:	f6 94       	lsr	r15
@@ -484,7 +484,7 @@ C:\Users\fm\AppData\Local\Temp\arduino_build_630655\sketch/tiny5351.c:47
  246:	85 e0       	ldi	r24, 0x05	; 5
  248:	82 0d       	add	r24, r2
  24a:	6d df       	rcall	.-294    	; 0x126 <i2cSendRegister>
-C:\Users\fm\AppData\Local\Temp\arduino_build_630655\sketch/tiny5351.c:48
+C:\Users\fm\AppData\Local\Temp\arduino_build_509065\sketch/tiny5351.c:48
   i2cSendRegister(pll + 6, (P2 & 0x0000FF00) >> 8);
  24c:	99 27       	eor	r25, r25
  24e:	87 2d       	mov	r24, r7
@@ -493,12 +493,12 @@ C:\Users\fm\AppData\Local\Temp\arduino_build_630655\sketch/tiny5351.c:48
  254:	86 e0       	ldi	r24, 0x06	; 6
  256:	82 0d       	add	r24, r2
  258:	66 df       	rcall	.-308    	; 0x126 <i2cSendRegister>
-C:\Users\fm\AppData\Local\Temp\arduino_build_630655\sketch/tiny5351.c:49
+C:\Users\fm\AppData\Local\Temp\arduino_build_509065\sketch/tiny5351.c:49
   i2cSendRegister(pll + 7, (P2 & 0x000000FF));
  25a:	64 2d       	mov	r22, r4
  25c:	87 e0       	ldi	r24, 0x07	; 7
  25e:	82 0d       	add	r24, r2
-C:\Users\fm\AppData\Local\Temp\arduino_build_630655\sketch/tiny5351.c:50
+C:\Users\fm\AppData\Local\Temp\arduino_build_509065\sketch/tiny5351.c:50
 }
  260:	c0 5f       	subi	r28, 0xF0	; 240
  262:	cd bf       	out	0x3d, r28	; 61
@@ -520,7 +520,7 @@ C:\Users\fm\AppData\Local\Temp\arduino_build_630655\sketch/tiny5351.c:50
  282:	4f 90       	pop	r4
  284:	3f 90       	pop	r3
  286:	2f 90       	pop	r2
-C:\Users\fm\AppData\Local\Temp\arduino_build_630655\sketch/tiny5351.c:49
+C:\Users\fm\AppData\Local\Temp\arduino_build_509065\sketch/tiny5351.c:49
   }
   i2cSendRegister(pll + 3, (P1 & 0x0000FF00) >> 8);
   i2cSendRegister(pll + 4, (P1 & 0x000000FF));
