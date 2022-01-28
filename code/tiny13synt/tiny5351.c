@@ -67,7 +67,7 @@ void si5351_freq(uint32_t freq, uint8_t clk) //, uint8_t i, uint8_t q
   uint32_t num = l;
   const uint32_t denom = 0xFFFFF;
   setupPLL((SI_SYNTH_MS_0 + (8 * clk)), si5351_mult, num, denom, SI_R_DIV_1);
-  i2cSendRegister((SI_CLK0_CONTROL + clk), 0x4F | SI_CLK_SRC_PLL_A); //0x4F
+  i2cSendRegister((SI_CLK0_CONTROL + clk), (0x4C + SI_outPWR) | SI_CLK_SRC_PLL_A);
   i2cSendRegister(SI_PLL_RESET, 0xA0);
   i2cSendRegister(SI_CLK_OE,  ~(1 << clk)); // Enable
   i2c_exit();						// Exit I2C

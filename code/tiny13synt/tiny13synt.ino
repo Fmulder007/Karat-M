@@ -2,6 +2,7 @@
 #include "tiny5351.h"
 
 uint32_t SI_XTAL_FREQ = 27018750UL; // Measured crystal frequency of XTAL2 for CL = 10pF
+uint8_t SI_outPWR = 0;  //3 - 8mA, 2 - 6mA, 1 - 4mA 0 -2mA
 //uint32_t frequency = 0;
 //uint8_t ch = 0;
 uint8_t prv_ch = 254;

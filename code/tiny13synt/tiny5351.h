@@ -7,6 +7,7 @@
 
 
 extern uint32_t SI_XTAL_FREQ;
+extern uint8_t SI_outPWR;
 #define SI_CLK_OE 3     // Register definitions
 #define SI_CLK0_PHOFF 165
 #define SI_CLK1_PHOFF 166
