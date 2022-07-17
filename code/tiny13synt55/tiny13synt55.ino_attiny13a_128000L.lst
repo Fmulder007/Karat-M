@@ -1,5 +1,5 @@
 
-C:\Users\fm\AppData\Local\Temp\arduino_build_626345/tiny13synt.ino.elf:     file format elf32-avr
+C:\Users\fm\AppData\Local\Temp\arduino_build_626345/tiny13synt55.ino.elf:     file format elf32-avr
 
 
 Disassembly of section .text:
@@ -76,7 +76,7 @@ C:\Users\fm\AppData\Local\Arduino15\packages\MicroCore\hardware\avr\2.2.0\cores\
   sei();
   42:	78 94       	sei
 setup():
-C:\github\Karat-M\code\tiny13synt/tiny13synt.ino:12
+C:\github\Karat-M\code\tiny13synt55/tiny13synt55.ino:12
 //uint8_t ch = 0;
 uint8_t prv_ch = 254;
 
@@ -84,21 +84,21 @@ uint8_t prv_ch = 254;
 void setup() {
   DDRB &= ~(1 << PB3);      // For attiny it is PB3 for adc input
   44:	bb 98       	cbi	0x17, 3	; 23
-C:\github\Karat-M\code\tiny13synt/tiny13synt.ino:13
+C:\github\Karat-M\code\tiny13synt55/tiny13synt55.ino:13
   ADMUX |= (0 << REFS0) | (1 << MUX1) | (1 << MUX0); // set reference and channel
   46:	87 b1       	in	r24, 0x07	; 7
   48:	83 60       	ori	r24, 0x03	; 3
   4a:	87 b9       	out	0x07, r24	; 7
-C:\github\Karat-M\code\tiny13synt/tiny13synt.ino:14
+C:\github\Karat-M\code\tiny13synt55/tiny13synt55.ino:14
   ADCSRA |= (1 << ADPS2) | (1 << ADPS1) | (1 << ADPS0) | (1 << ADEN); //set prescaller to 128 and enable ADC
   4c:	86 b1       	in	r24, 0x06	; 6
   4e:	87 68       	ori	r24, 0x87	; 135
   50:	86 b9       	out	0x06, r24	; 6
-C:\github\Karat-M\code\tiny13synt/tiny13synt.ino:15
+C:\github\Karat-M\code\tiny13synt55/tiny13synt55.ino:15
   sei();
   52:	78 94       	sei
 ReadADC():
-C:\github\Karat-M\code\tiny13synt/tiny13synt.ino:27
+C:\github\Karat-M\code\tiny13synt55/tiny13synt55.ino:27
     prv_ch = ch;
   }
 }
@@ -106,16 +106,16 @@ C:\github\Karat-M\code\tiny13synt/tiny13synt.ino:27
 uint16_t ReadADC() {
   ADCSRA |= (1 << ADSC);       // start conversion
   54:	36 9a       	sbi	0x06, 6	; 6
-C:\github\Karat-M\code\tiny13synt/tiny13synt.ino:28
+C:\github\Karat-M\code\tiny13synt55/tiny13synt55.ino:28
   while (ADCSRA & (1 << ADSC)) {} // wait for conversion complete
   56:	36 99       	sbic	0x06, 6	; 6
   58:	fe cf       	rjmp	.-4      	; 0x56 <__SREG__+0x17>
-C:\github\Karat-M\code\tiny13synt/tiny13synt.ino:29
+C:\github\Karat-M\code\tiny13synt55/tiny13synt55.ino:29
   return ADC;
   5a:	a4 b0       	in	r10, 0x04	; 4
   5c:	b5 b0       	in	r11, 0x05	; 5
 loop():
-C:\github\Karat-M\code\tiny13synt/tiny13synt.ino:19
+C:\github\Karat-M\code\tiny13synt55/tiny13synt55.ino:19
   ADCSRA |= (1 << ADPS2) | (1 << ADPS1) | (1 << ADPS0) | (1 << ADEN); //set prescaller to 128 and enable ADC
   sei();
 }
@@ -127,12 +127,12 @@ uint8_t  ch = ReadADC() >> 6;
   62:	a7 94       	ror	r10
   64:	fa 95       	dec	r31
   66:	e1 f7       	brne	.-8      	; 0x60 <__SREG__+0x21>
-C:\github\Karat-M\code\tiny13synt/tiny13synt.ino:20
+C:\github\Karat-M\code\tiny13synt55/tiny13synt55.ino:20
   if (prv_ch != ch) {
   68:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
   6c:	8a 15       	cp	r24, r10
   6e:	91 f3       	breq	.-28     	; 0x54 <__SREG__+0x15>
-C:\github\Karat-M\code\tiny13synt/tiny13synt.ino:21
+C:\github\Karat-M\code\tiny13synt55/tiny13synt55.ino:21
     si5351_freq(eeprom_read_dword((uint32_t*)(ch << 2)) , 0);
   70:	c5 01       	movw	r24, r10
   72:	88 0f       	add	r24, r24
@@ -258,7 +258,7 @@ C:\Users\fm\AppData\Local\Temp\arduino_build_626345\sketch/tiny5351.c:74
   i2c_exit();						// Exit I2C
  11e:	0f d0       	rcall	.+30     	; 0x13e <i2c_exit>
 loop():
-C:\github\Karat-M\code\tiny13synt/tiny13synt.ino:22
+C:\github\Karat-M\code\tiny13synt55/tiny13synt55.ino:22
     prv_ch = ch;
  120:	a0 92 60 00 	sts	0x0060, r10	; 0x800060 <__DATA_REGION_ORIGIN__>
  124:	97 cf       	rjmp	.-210    	; 0x54 <__SREG__+0x15>
