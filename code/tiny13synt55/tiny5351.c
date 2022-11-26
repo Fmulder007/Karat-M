@@ -55,9 +55,10 @@ void si5351_freq(uint32_t freq, uint8_t clk) //, uint8_t i, uint8_t q
   uint64_t pll_freq;
   //uint8_t r_div = 1;
   i2c_init();
-  setupPLL(SI_SYNTH_PLL_A, 19, 0, 1, R_DIV_NA);
+  #define ml 24
+  setupPLL(SI_SYNTH_PLL_A, ml, 0, 1, R_DIV_NA);
   //setupPLL(SI_SYNTH_PLL_B, 30, 0, 1,R_DIV_NA);
-  pll_freq = (SI_XTAL_FREQ * 19);
+  pll_freq = (SI_XTAL_FREQ * ml);
   div_result output = tdivide(pll_freq, freq);
   si5351_mult = output.quot;
   uint32_t l =  output.remainder << 10;
