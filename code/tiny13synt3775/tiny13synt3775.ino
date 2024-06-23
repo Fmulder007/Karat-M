@@ -1,7 +1,7 @@
 #include <avr/eeprom.h>
 #include "tiny5351.h"
 uint32_t SI_XTAL_FREQ = 27017100UL;
-uint32_t frequency = 3272898UL;
+uint32_t ch1 = 12830000UL;
 uint8_t prv_ch = 254;
 
 void setup() {
